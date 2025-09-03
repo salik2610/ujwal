@@ -1,7 +1,5 @@
 .dashboard {
   padding: 30px;
-  margin-left: 280px;
-  margin-top: 70px;
   min-height: calc(100vh - 70px);
   background: #f8f9fa;
 }
@@ -248,7 +246,6 @@
 /* Responsive */
 @media (max-width: 768px) {
   .dashboard {
-    margin-left: 0;
     padding: 20px;
   }
   

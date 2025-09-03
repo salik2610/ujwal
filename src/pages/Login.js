@@ -27,21 +27,51 @@ const Login = () => {
     setLoading(true);
     setError('');
 
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Try to connect to backend first
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          localStorage.setItem('isAuthenticated', 'true');
+          localStorage.setItem('user', JSON.stringify(data.user));
+          localStorage.setItem('token', data.token);
+          navigate('/dashboard');
+          return;
+        } else {
+          setError(data.message || 'Login failed');
+        }
+      } else {
+        throw new Error('Backend not available');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      
+      // Fallback to local authentication if backend is not available
       if (formData.username === 'ujwal' && formData.password === 'railway2025') {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify({
           username: formData.username,
           role: 'Railway Administrator',
-          name: 'Ujwal Admin'
+          name: 'Ujwal Admin',
+          id: 1,
+          permissions: ['dashboard', 'analytics', 'data-management', 'kpi-input', 'audit-trails', 'users', 'settings']
         }));
+        localStorage.setItem('token', 'mock-jwt-token-' + Date.now());
         navigate('/dashboard');
       } else {
         setError('Invalid username or password');
       }
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (

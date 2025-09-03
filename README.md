@@ -1,106 +1,139 @@
-# Gati-Rakshak: Ujwal Module - Performance Analytics Dashboard
+# Gati-Rakshak Ujwal Module
 
-A React-based performance analytics dashboard for the Indian Railways Gati-Rakshak project's Ujwal module. This dashboard provides real-time KPIs and audit trails for railway operations.
+A comprehensive railway performance management system built with React and Node.js.
 
 ## Features
 
-- **Real-Time KPIs**: Live monitoring of punctuality rate, average delay, and track throughput
-- **Audit Trails**: Complete logging of AI recommendations and human decisions
-- **Responsive Design**: Modern UI with Indian Railways branding
-- **Auto-Updates**: Simulated real-time data updates every 5 seconds
+- ✅ Real-time dashboard with KPI monitoring
+- ✅ Analytics and reporting
+- ✅ User management with role-based access
+- ✅ Data management
+- ✅ Audit trails
+- ✅ Notifications system
+- ✅ Search functionality
+- ✅ Settings management
+- ✅ Responsive design
+- ✅ Modern UI/UX
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (version 14 or higher)
-- npm or yarn package manager
+- Node.js (v14 or higher)
+- npm or yarn
 
-### Installation
+### Local Development
 
-1. Clone or download this project
-2. Navigate to the project directory:
-   ```bash
-   cd ujwal
-   ```
-
-3. Install dependencies:
+1. Clone the repository
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-4. Start both frontend and backend:
+3. Start the development server:
    ```bash
    npm run dev
    ```
-   
-   Or run them separately:
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Demo Credentials
+
+- Username: `ujwal`
+- Password: `railway2025`
+
+## Deployment
+
+### Vercel Deployment
+
+1. **Frontend Deployment:**
    ```bash
-   # Terminal 1 - Backend server
-   npm run server
-   
-   # Terminal 2 - Frontend app
-   npm start
+   npm run build
    ```
+   Deploy the `build` folder to Vercel.
 
-5. Open your browser and navigate to `http://localhost:3000`
+2. **Backend Deployment (Optional):**
+   Deploy the `server.js` file to a separate Vercel serverless function or use a different backend service.
 
-## Project Structure
+### Environment Setup
 
-```
-ujwal/
-├── public/
-│   └── index.html          # HTML template
-├── src/
-│   ├── App.js             # Main application component
-│   ├── App.css            # Application styles
-│   ├── index.js           # React entry point
-│   └── index.css          # Global styles
-├── server.js              # Express backend server
-├── package.json           # Dependencies and scripts
-└── README.md             # This file
-```
+The application works in two modes:
+- **With Backend**: Full functionality with real-time data
+- **Without Backend**: Fallback mode with mock data (perfect for static deployment)
 
 ## Available Scripts
 
-- `npm start` - Runs the React app in development mode
-- `npm run server` - Runs the Express backend server
+- `npm start` - Runs the React app
+- `npm run server` - Runs the backend server
 - `npm run dev` - Runs both frontend and backend concurrently
-- `npm build` - Builds the app for production
-- `npm test` - Launches the test runner
-- `npm eject` - Ejects from Create React App (one-way operation)
+- `npm run build` - Builds the app for production
+- `npm run vercel-build` - Builds for Vercel deployment
 
-## Key Components
+## Technology Stack
 
-### KPI Cards
-- **Punctuality Rate**: Percentage of trains running on time
-- **Average Delay**: Mean delay time in minutes
-- **Track Throughput**: Number of trains per hour
+- **Frontend**: React 18, React Router, Recharts, React Icons
+- **Backend**: Node.js, Express, CORS
+- **Styling**: Modern CSS3 with responsive design
+- **Deployment**: Vercel-ready with fallback support
 
-### Audit Table
-- Timestamp of events
-- Type of action (AI Recommendation/Human Decision)
-- Detailed description of the action
+## Key Features Implemented
 
-## Customization
+### ✅ Authentication System
+- Secure login with backend integration
+- Fallback authentication for static deployment
+- Session management with localStorage
 
-The dashboard can be customized by modifying:
-- `src/App.js` - Component logic and data structure
-- `src/App.css` - Styling and layout
-- Mock data in the component for testing different scenarios
+### ✅ Dashboard
+- Real-time KPI monitoring
+- Interactive charts and graphs
+- Performance metrics tracking
+- Responsive design
 
-## Backend API Endpoints
+### ✅ User Management
+- Complete CRUD operations
+- Role-based access control
+- User status management
+- Search and filtering
 
-- `GET /api/kpis` - Returns real-time KPI data (punctuality rate, average delay, track throughput)
-- `GET /api/audit-trails` - Returns audit trail data (AI recommendations and human decisions)
+### ✅ Settings Management
+- System configuration
+- Notification preferences
+- Security settings
+- Data management options
 
-## Technologies Used
+### ✅ Notification System
+- Real-time notifications
+- Interactive bell icon
+- Mark as read functionality
+- Fallback mock notifications
 
-- **Frontend**: React 18.2.0, CSS3, JavaScript ES6+
-- **Backend**: Express.js, CORS
-- **Development**: Create React App, Concurrently
+### ✅ Search Functionality
+- Live search across the system
+- Search trains, stations, routes, KPIs
+- Fallback search results
+
+### ✅ Modern UI/UX
+- Collapsible sidebar
+- Professional design
+- Smooth animations
+- Mobile responsive
+
+## Troubleshooting
+
+### Login Issues
+- Ensure backend server is running: `npm run server`
+- Check browser console for errors
+- Try the fallback authentication (works without backend)
+
+### Deployment Issues
+- Use `npm run vercel-build` for Vercel deployment
+- Ensure all dependencies are in `package.json`
+- Check `vercel.json` configuration
+
+## Support
+
+For issues or questions, please check the console logs and ensure all dependencies are properly installed.
 
 ## License
 
 © 2025 Indian Railways - Gati-Rakshak Project
-

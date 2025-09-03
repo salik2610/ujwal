@@ -10,10 +10,12 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import DataManagement from "./pages/DataManagement";
 import KPIInput from "./pages/KPIInput";
+import Settings from "./pages/Settings";
+import Users from "./pages/Users";
 import "./App.css";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -29,7 +31,7 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
                     <Dashboard />
@@ -42,7 +44,7 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
                     <Dashboard />
@@ -55,7 +57,7 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
                     <DataManagement />
@@ -68,7 +70,7 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
                     <KPIInput />
@@ -81,7 +83,7 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
                     <DataManagement />
@@ -94,10 +96,10 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
-                    <div className="page-placeholder"><h2>Users Management</h2><p>Coming Soon...</p></div>
+                    <Users />
                   </div>
                 </div>
               </div>
@@ -107,10 +109,10 @@ function App() {
             <ProtectedRoute>
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
-                <div className="main-content">
+                <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
                   <Header onMenuClick={toggleSidebar} />
                   <div className="content">
-                    <div className="page-placeholder"><h2>Settings</h2><p>Coming Soon...</p></div>
+                    <Settings />
                   </div>
                 </div>
               </div>

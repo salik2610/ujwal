@@ -34,11 +34,24 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user', JSON.stringify(userData));
   };
 
-  const logout = () => {
-    setIsAuthenticated(false);
-    setUser(null);
-    localStorage.removeItem('isAuthenticated');
-    localStorage.removeItem('user');
+  const logout = async () => {
+    try {
+      // Call logout API
+      await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error('Logout error:', error);
+    } finally {
+      setIsAuthenticated(false);
+      setUser(null);
+      localStorage.removeItem('isAuthenticated');
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+    }
   };
 
   const value = {

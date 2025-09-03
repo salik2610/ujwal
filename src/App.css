@@ -5,10 +5,11 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background: #f8f9fa;
   color: #333;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
 .app {
@@ -21,22 +22,27 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 280px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 0;
 }
 
 .content {
   flex: 1;
   background: #f8f9fa;
+  padding-top: 70px;
+  min-height: calc(100vh - 70px);
 }
 
 .page-placeholder {
   padding: 50px;
   text-align: center;
-  margin-left: 280px;
-  margin-top: 70px;
+  margin: 30px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-right: 30px;
 }
 
 .page-placeholder h2 {
@@ -56,9 +62,12 @@ body {
     margin-left: 0;
   }
   
-  .page-placeholder {
+  .main-content.sidebar-collapsed {
     margin-left: 0;
-    margin-right: 20px;
+  }
+  
+  .page-placeholder {
+    margin: 20px;
   }
 }
 

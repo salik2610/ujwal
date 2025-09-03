@@ -25,7 +25,7 @@ const Sidebar = ({ isOpen }) => {
   ];
 
   return (
-    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+    <div className={`sidebar ${isOpen ? 'open' : 'collapsed'}`}>
       <div className="sidebar-header">
         <h2>Gati-Rakshak</h2>
         <p>Ujwal Module</p>

@@ -120,6 +120,103 @@ app.delete("/api/audit-trails/:id", (req, res) => {
   res.json({ message: "Item deleted successfully" });
 });
 
+// Authentication Endpoints
+app.post("/api/auth/login", (req, res) => {
+  const { username, password } = req.body;
+  
+  // Simple authentication check
+  if (username === 'ujwal' && password === 'railway2025') {
+    const userData = {
+      username: username,
+      role: 'Railway Administrator',
+      name: 'Ujwal Admin',
+      id: 1,
+      permissions: ['dashboard', 'analytics', 'data-management', 'kpi-input', 'audit-trails', 'users', 'settings']
+    };
+    
+    res.json({
+      success: true,
+      message: 'Login successful',
+      user: userData,
+      token: 'mock-jwt-token-' + Date.now()
+    });
+  } else {
+    res.status(401).json({
+      success: false,
+      message: 'Invalid username or password'
+    });
+  }
+});
+
+app.post("/api/auth/logout", (req, res) => {
+  res.json({
+    success: true,
+    message: 'Logout successful'
+  });
+});
+
+// Notifications Endpoints
+app.get("/api/notifications", (req, res) => {
+  const notifications = [
+    {
+      id: 1,
+      title: "Delay Alert",
+      message: "Train 12345 delayed by 15 minutes at Delhi Station",
+      type: "warning",
+      timestamp: new Date(Date.now() - 2 * 60 * 1000).toISOString(),
+      read: false
+    },
+    {
+      id: 2,
+      title: "System Update",
+      message: "KPI data synchronization completed successfully",
+      type: "info",
+      timestamp: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
+      read: false
+    },
+    {
+      id: 3,
+      title: "Performance Improvement",
+      message: "Punctuality rate improved by 2.3% this hour",
+      type: "success",
+      timestamp: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
+      read: false
+    }
+  ];
+  
+  res.json(notifications);
+});
+
+app.put("/api/notifications/:id/read", (req, res) => {
+  const id = parseInt(req.params.id);
+  res.json({
+    success: true,
+    message: 'Notification marked as read'
+  });
+});
+
+// Search Endpoints
+app.get("/api/search", (req, res) => {
+  const { q } = req.query;
+  
+  if (!q) {
+    return res.json([]);
+  }
+  
+  // Mock search results
+  const searchResults = [
+    { type: 'train', id: '12345', name: 'Train 12345', status: 'On Time', route: 'Delhi-Mumbai' },
+    { type: 'station', id: 'DEL', name: 'Delhi Station', status: 'Active', location: 'Delhi' },
+    { type: 'route', id: 'DEL-MUM', name: 'Delhi-Mumbai Route', status: 'Operational', distance: '1384 km' },
+    { type: 'kpi', id: 'punctuality', name: 'Punctuality Rate', value: '92%', trend: 'up' }
+  ].filter(item => 
+    item.name.toLowerCase().includes(q.toLowerCase()) ||
+    item.id.toLowerCase().includes(q.toLowerCase())
+  );
+  
+  res.json(searchResults);
+});
+
 // Analytics Endpoints
 app.get("/api/analytics/performance", (req, res) => {
   const performanceData = {
