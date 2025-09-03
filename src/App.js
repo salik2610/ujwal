@@ -32,7 +32,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <Dashboard />
                   </div>
@@ -45,7 +45,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <Dashboard />
                   </div>
@@ -58,7 +58,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <DataManagement />
                   </div>
@@ -71,7 +71,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <KPIInput />
                   </div>
@@ -84,7 +84,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <DataManagement />
                   </div>
@@ -97,7 +97,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <Users />
                   </div>
@@ -110,7 +110,7 @@ function App() {
               <div className="app">
                 <Sidebar isOpen={sidebarOpen} />
                 <div className={`main-content ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
-                  <Header onMenuClick={toggleSidebar} />
+                  <Header onMenuClick={toggleSidebar} sidebarOpen={sidebarOpen} />
                   <div className="content">
                     <Settings />
                   </div>

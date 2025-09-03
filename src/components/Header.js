@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { FiMenu, FiBell, FiSearch, FiUser, FiLogOut, FiX, FiCheck, FiAlertTriangle, FiInfo, FiCheckCircle } from 'react-icons/fi';
 import './Header.css';
 
-const Header = ({ onMenuClick }) => {
+const Header = ({ onMenuClick, sidebarOpen }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [notifications, setNotifications] = useState([]);
@@ -182,7 +182,7 @@ const Header = ({ onMenuClick }) => {
   const unreadCount = notifications.filter(n => !n.read).length;
 
   return (
-    <header className="header">
+    <header className={`header ${!sidebarOpen ? 'sidebar-collapsed' : ''}`}>
       <div className="header-left">
         <button className="menu-btn" onClick={onMenuClick}>
           <FiMenu />

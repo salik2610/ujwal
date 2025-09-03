@@ -5,9 +5,9 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: #f8f9fa;
-  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1e293b;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -22,16 +22,17 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 280px;
-  transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
 }
 
 .main-content.sidebar-collapsed {
-  margin-left: 0;
+  margin-left: 70px;
 }
 
 .content {
   flex: 1;
-  background: #f8f9fa;
+  background: transparent;
   padding-top: 70px;
   min-height: calc(100vh - 70px);
 }
@@ -64,6 +65,10 @@ body {
   
   .main-content.sidebar-collapsed {
     margin-left: 0;
+  }
+  
+  .content {
+    padding-top: 70px;
   }
   
   .page-placeholder {
