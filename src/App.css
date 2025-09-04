@@ -10,6 +10,8 @@ body {
   color: #1e293b;
   overflow-x: hidden;
   line-height: 1.6;
+  /* Force cache refresh */
+  transform: translateZ(0);
 }
 
 .app {
